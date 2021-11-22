@@ -3,13 +3,13 @@
 #She can recommend movies based on genres, actors, directors and also search movie data based on the title.
 
 # SET UP:
-  #install rasa x. docs here -->(https://rasa.com/docs/rasa/installation) 
-  #clone the repository
-  #Go to the project directory and run "rasa train". This will take sometime as the bot is in training
+  #install rasa x. docs here -->(https://rasa.com/docs/rasa/installation) .
+  #clone the repository.
+  #Go to the project directory and run "rasa train". This will take sometime as the bot is in training.
   #once training is done. run "rasa shell" to talk to EVA.
 
-#EVA uses imdb and rotten tomatoes csv file which is larger in size. so the db folder is compressed. Before running the project please make sure you extracted the db folder in the project directory.(https://drive.google.com/drive/folders/1ga0suOczFAJrK3RjZ6Kq65XqQyDsYKNK?usp=sharing)
-#EVA is built using RASA Open Source using Python. She is still new and learning faster. Here are some basic conversation flows that you might be interested to try
+#EVA uses imdb and rotten tomatoes csv file which is larger in size. so the db folder is shared on drive. Before running the project please make sure you extracted the files under the folder "db" in the project directory.(https://drive.google.com/drive/folders/1ga0suOczFAJrK3RjZ6Kq65XqQyDsYKNK?usp=sharing).
+#EVA is built using RASA Open Source using Python. She is still new and learning faster. Here are some basic conversation flows that you might be interested to try.
 
 #Conversation Flow 1 :
 
