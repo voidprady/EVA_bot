@@ -1,0 +1,576 @@
+version: "2.0"
+
+stories:
+
+- story: chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - checkpoint: chitchat_checkpoint
+
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: happy small talk
+  steps:
+  - intent: mood_great
+  - action: utter_ok
+
+- story: find_movies_with_genre
+  steps:
+    - checkpoint: chitchat_checkpoint
+    - intent: recommend_movie_genre
+      entities:
+      - {genre: comedy, role: genre_1}
+      - {genre: drama, role: genre_2}
+    - action: utter_quick_response
+    - action: action_get_movie_by_genre
+    - slot_was_set:
+      - genre_1: comedy
+      - genre_2: drama
+      - genre_3: None
+    - action: utter_did_that_help
+    - checkpoint: feedback_level_1
+
+- story: find_movies_with_genre_x
+  steps:
+    - intent: recommend_movie_genre
+      entities:
+      - {genre: comedy, role: genre_1}
+      - {genre: action, role: genre_2}
+      - {genre: adventure, role: genre_3}
+    - action: utter_quick_response
+    - action: action_get_movie_by_genre
+    - slot_was_set:
+      - genre_1: comedy
+      - genre_2: action
+      - genre_3: adventure
+    - action: utter_did_that_help
+    - checkpoint: feedback_level_1
+
+- story: finish flow
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: affirm
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_genre_contd
+  steps:
+    - checkpoint: feedback_level_1
+    - intent: deny
+    - action: utter_more
+    - action: action_get_movie_by_genre
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_next
+    - intent: dismiss
+    - action: utter_ok
+    - action: utter_goodbye
+
+- story: find_movie_data_genre
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_movie_data
+    entities:
+    - movie_title: Bending All the Rules
+  - slot_was_set:
+    - movie_title: Bending All the Rules
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movie_data_genre_extnd
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_movie_data
+    entities:
+    - movie_title: Black Panther
+  - slot_was_set:
+    - movie_title: Black Panther
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_actor
+    entities:
+    - actor: Buster Keaton
+  - slot_was_set:
+    - actor: Buster Keaton
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+  
+- story: find_movie_data_genre_extnd_2
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_movie_data
+    entities:
+    - movie_title: Black Panther
+  - slot_was_set:
+    - movie_title: Black Panther
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_director
+    entities:
+    - director: Álex Pina
+  - slot_was_set:
+    - director: Álex Pina
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movie_data_genre_extnd_3
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_actor
+  steps:
+  - checkpoint: chitchat_checkpoint
+  - intent: search_with_actor
+    entities:
+    - actor: Frances Seymour Fonda
+  - slot_was_set:
+    - actor: Frances Seymour Fonda
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+
+- story: find_movies_with_actor_repeat
+  steps:
+  - checkpoint: chitchat_checkpoint
+  - intent: search_with_actor
+    entities:
+    - actor: Frances Seymour Fonda
+  - slot_was_set:
+    - actor: Frances Seymour Fonda
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: search_with_actor
+    entities:
+    - actor: Frances Seymour Fonda
+  - slot_was_set:
+    - actor: Frances Seymour Fonda
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_actor_contd
+  steps:
+  - checkpoint: chitchat_checkpoint
+  - intent: search_with_actor
+    entities: 
+    - actor: Prince Aly Khan
+  - slot_was_set:
+    - actor: Prince Aly Khan
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: deny
+  - action: utter_fallback
+  - action: action_actor_verification
+  - intent: affirm
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_actor_2
+  steps:
+  - checkpoint: chitchat_checkpoint
+  - intent: search_with_actor
+    entities:
+    - actor: Mae Elizabeth Scrivens
+  - slot_was_set: 
+    - actor: Mae Elizabeth Scrivens
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: deny
+  - action: utter_fallback
+  - action: action_actor_verification
+  - intent: deny
+  - action: utter_start_again
+
+- story: find_movies_with_actor_3
+  steps:
+  - intent: search_with_actor
+    entities:
+    - actor: John Le Mesurier
+  - slot_was_set:
+    - actor: John Le Mesurier
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_actor
+    entities:
+    - actor: Ronan O'Casey
+  - slot_was_set:
+    - actor: Ronan O'Casey
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_actor_4
+  steps:
+  - intent: search_with_actor
+    entities:
+    - actor: John Le Mesurier
+  - slot_was_set:
+    - actor: John Le Mesurier
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: Staying Alive
+  - slot_was_set:
+    - movie_title: Staying Alive
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_director
+    entities:
+    - director: Quentin Tarantino
+  - slot_was_set:
+    - director: Quentin Tarantino
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_director
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_with_director
+    entities:
+    - director: Quentin Tarantino
+  - slot_was_set:
+    - director: Quentin Tarantino
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_director_repeat
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_with_director
+    entities:
+    - director: Quentin Tarantino
+  - slot_was_set:
+    - director: Quentin Tarantino
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: search_with_director
+    entities:
+    - director: Walter Lang
+  - slot_was_set:
+    - director: Walter Lang
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_director_contd
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_with_director
+    entities:
+    - director: Guillermo del Toro
+  - slot_was_set:
+    - director: Guillermo del Toro
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_director_3
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_with_director
+    entities:
+    - director: Oliver Stone
+  - slot_was_set:
+    - director: Oliver Stone
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: deny
+  - action: utter_fallback
+  - action: action_director_verification
+  - intent: deny
+  - action: utter_start_again
+
+- story: find_movies_with_director_4
+  steps:
+  - checkpoint: chitchat_checkpoint
+  - intent: search_with_director
+    entities:
+    - director: Quentin Tarantino
+  - slot_was_set:
+    - director: Quentin Tarantino
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_actor
+    entities:
+    - actor: John Le Mesurier
+  - slot_was_set:
+    - actor: John Le Mesurier
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+- story: find_movies_with_director_5
+  steps:
+  - intent: search_with_director
+    entities:
+    - director: Quentin Tarantino
+  - slot_was_set:
+    - director: Quentin Tarantino
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: The Birth of a Nation
+  - slot_was_set:
+    - movie_title: The Birth of a Nation
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_next
+  - intent: search_with_actor
+    entities:
+    - actor: John Le Mesurier
+  - slot_was_set:
+    - actor: John Le Mesurier
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+
+
+- story: long_conversation_story_1
+  steps:
+  - checkpoint: feedback_level_1
+  - intent: search_movie_data
+    entities:
+    - movie_title: Bending All the Rules
+  - slot_was_set:
+    - movie_title: Bending All the Rules
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_did_that_help
+  - intent: search_with_actor
+    entities:
+    - actor: Ronan O'Casey
+  - slot_was_set:
+    - actor: Ronan O'Casey
+  - action: utter_quick_response
+  - action: action_actor_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_actor
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: Bending All the Rules
+  - slot_was_set:
+    - movie_title: Bending All the Rules
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_did_that_help
+  - intent: search_with_director
+    entities:
+    - director: Guillermo del Toro
+  - slot_was_set:
+    - director: Guillermo del Toro
+  - action: utter_quick_response
+  - action: action_director_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_by_director
+  - action: utter_next
+  - intent: search_movie_data
+    entities:
+    - movie_title: Bending All the Rules
+  - slot_was_set:
+    - movie_title: Bending All the Rules
+  - action: action_movie_verification
+  - intent: affirm
+  - action: utter_quick_response
+  - action: action_get_movie_data
+  - action: utter_did_that_help
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
+
+
+
+- story: sad path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_movie_data
+  - action: utter_quick_response
+  - action: action_movie_verification
+  - intent: affirm
+  - action: action_get_movie_data
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_next
+  - intent: dismiss
+  - action: utter_ok
+  - action: utter_goodbye
