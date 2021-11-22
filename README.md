@@ -5,6 +5,7 @@
 #EVA is built using RASA Open Source using Python. She is still new and learning faster. Here are some basic conversation flows that you might be interested to try
 
 #Conversation Flow 1 :
+
 -> input: Hi
 -> EVA: Hi! I am EVA, and I am here to help you pick a movie. You can ask me for movies based on genres, actors and directors. What can I assist you with today?
 -> input: what is the day like
@@ -22,4 +23,7 @@
 -> EVA : cool, don't hesitate to reach back out to me.
 -> Hope to see you again
 
+
+# conversation flows can be extended to ask further questions like showed in the examples below.
+![alt text](./sample%20conversation%20flows/flow_actor_extended.png)
 
