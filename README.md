@@ -23,9 +23,69 @@
 -> EVA : cool, don't hesitate to reach back out to me.
 -> Hope to see you again
 
+#Conversation Flow 2 :
+-> input: Hi
+-> EVA: Hi! I am EVA, and I am here to help you pick a movie. You can ask me for movies based on genres, actors and directors. What can I assist you with today?
+-> input: how is it going
+-> EVA :  It's a good day to watch a movie!
+-> input : I wanna watch a movie
+-> EVA : Sure! what kind of movie are you looking for ?
+-> input :find movies by Steven Spielberg
+-> EVA : Sit back while I crunch the numbers for you
+-> EVA : you mean, steven spielberg, right ?
+-> input : yes
+-> EVA : on it. The results should be up in a few seconds
+-> EVA : Steven Spielberg directed the following films: Firelight, The Sugarland Express, Jaws, Close, Encounters Of The Third Kind
+-> EVA: what else can i help you find? 
+-> input : that is all
+-> EVA : cool, don't hesitate to reach back out to me.
+-> Hope to see you again
+
+#Conversation Flow 3 :
+-> input: Hi
+-> EVA: Hi! I am EVA, and I am here to help you pick a movie. You can ask me for movies based on genres, actors and directors. What can I assist you with today?
+-> input: how is it going
+-> EVA :  It's a good day to watch a movie!
+-> input : I wanna watch a movie
+-> EVA : Sure! what kind of movie are you looking for ?
+-> input :how about sci-fi movies
+-> EVA : Sit back while I crunch the numbers for you
+-> EVA : Let me see what I can find for you
+-> EVA : sci-fi movie coming right up.
+-> EVA : Here is my recommendation: The Day Mars Invaded Earth
+-> EVA : Did that help you?
+-> input : yes
+-> EVA: what else can i help you find? 
+-> input : that is all
+-> EVA : cool, don't hesitate to reach back out to me.
+-> Hope to see you again
+
+#Conversation Flow 4 :
+-> input: Hi
+-> EVA: Hi! I am EVA, and I am here to help you pick a movie. You can ask me for movies based on genres, actors and directors. What can I assist you with today?
+-> input: how is it going
+-> EVA :  It's a good day to watch a movie!
+-> input : I wanna watch a movie
+-> EVA : Sure! what kind of movie are you looking for ?
+-> input :how about sci-fi movies
+-> EVA : Sit back while I crunch the numbers for you
+-> EVA : Let me see what I can find for you
+-> EVA : sci-fi movie coming right up.
+-> EVA : Here is my recommendation: The Day Mars Invaded Earth
+-> EVA : Did that help you?
+-> input : nope
+-> EVA : I got something just for you.
+-> EVA : sci-fi movie coming right up.
+-> EVA : Here is my recommendation: The Lost City
+-> EVA : Did that help you?
+-> EVA : yes
+-> EVA: what else can i help you find? 
+-> input : that is all
+-> EVA : cool, don't hesitate to reach back out to me.
+-> Hope to see you again
 
 # Conversation flows can be extended to ask further questions like showed in the examples below.
 ![alt text](./sample%20conversation%20flows/flow_actor_extended.png)
 
-#example conversation flow 2 :
+#example extended conversation flow 2 :
 ![alt text](./sample%20conversation%20flows/flow_1.png)
