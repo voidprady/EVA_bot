@@ -24,6 +24,8 @@
 -> Hope to see you again
 
 
-# conversation flows can be extended to ask further questions like showed in the examples below.
+# Conversation flows can be extended to ask further questions like showed in the examples below.
 ![alt text](./sample%20conversation%20flows/flow_actor_extended.png)
 
+#example conversation flow 2 :
+![alt text](./sample%20conversation%20flows/flow_1.png)
