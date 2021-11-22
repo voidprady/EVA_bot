@@ -1,0 +1,391 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: chitchat/ask_name
+  examples: |
+    - what is your name
+    - do you have a nickname
+    - what should i call you
+    - do you have a name
+    - what can i call you
+    - can i know what to call you
+    - what is this
+    - What do people call you?
+
+- intent: chitchat/ask_purpose
+  examples: |
+    - what do you do
+    - what can you do
+    - what is your purpose
+    - what are you here for
+    - what is your job
+    - do you have a job
+    - do you have a purpose
+
+- intent: chitchat/ask_day
+  examples: |
+    - what is the day like
+    - hows it going
+    - how is it going
+    - how is the day
+    - is it a good day
+    - how is it going today
+    - hows it going today
+    - how is the day going
+
+- intent: chitchat/movie_interests
+  examples: |
+    - what kind of movies do you like
+    - what kind of films do you like
+    - what is your fav genre of movies
+    - What kind of movies do you prefer
+    - What are your movie preferences like
+    - What kind of films do you like watching the most
+    - what is your go-to movie genre
+    - what is your favorite movie
+
+- intent: chitchat/ask_recommendation
+  examples: |
+    - can you recommend me a movie
+    - can you find me a movie
+    - can you suggest me a movie
+    - find me a movie
+    - are there any good movies to watch
+    - show me a good movie
+    - i wanna watch a movie
+
+- intent: recommend_movie_genre
+  examples: |
+    - a [drama]{"entity": "genre", "role": "genre_1"} movie
+    - a [romantic]{"entity": "genre", "role": "genre_1"} [comedy]{"entity":"genre", "role":"genre_2"} movie
+    - a [sports]{"entity": "genre", "role": "genre_1"} movie
+    - a [comedy]{"entity": "genre", "role": "genre_1"} 
+    - I wanna watch a [drama]{"entity": "genre", "role": "genre_1"} movie
+    - I wanna watch a good [action]{"entity": "genre", "role": "genre_1"} film
+    - I wanna watch an [action]{"entity": "genre", "role": "genre_1"} [adventure]{"entity": "genre", "role": "genre_2"}
+    - can you recommend a good [comedy]{"entity": "genre", "role":"genre_1"}
+    - find an [action]{"entity": "genre", "role":"genre_1"} movie
+    - find a [romanctic]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}
+    - find a [comedy]{"entity": "genre", "role":"genre_1"} [drama]{"entity":"genre", "role":"genre_2"}
+    - how about [war]{"entity": "genre", "role":"genre_1"} movies
+    - show me a [thriller]{"entity": "genre", "role":"genre_1"} [action]{"entity": "genre", "role":"genre_2"} [adventure]{"entity": "genre", "role":"genre_3"}
+    - [horror]{"entity": "genre", "role":"genre_1"} [thriller]{"entity": "genre", "role":"genre_2"} films
+    - [adventure]{"entity": "genre", "role":"genre_1"}
+    - [comedy]{"entity":"genre", "role":"genre_1"}
+    - [horror]{"entity":"genre", "role":"genre_1"}
+    - [action]{"entity":"genre", "role":"genre_1"}
+    - [drama]{"entity":"genre", "role":"genre_1"}
+    - [thriller]{"entity":"genre", "role":"genre_1"}
+    - recommend a [comedy]{"entity": "genre", "role":"genre_1"} that is also an [adventure]{"entity": "genre", "role":"genre_2"} and [thriller]{"entity": "genre", "role":"genre_3"}
+    - Can you find me a [comedy]{"entity": "genre", "role":"genre_1"}?
+    - can you recommend a [comedy]{"entity": "genre", "role":"genre_1"}
+    - Can you recommend an [action]{"entity": "genre", "role":"genre_1"} movie?
+    - Can you recommend a [romantic]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}
+    - can you suggest a good [thriller]{"entity": "genre", "role":"genre_1"}
+    - can you recommend a [romantic]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}
+    - can you recommend a [musical]{"entity": "genre", "role":"genre_1"} for me
+    - can you recommend an [adventure]{"entity": "genre", "role":"genre_1"} movie
+    - can you recommend an [action]{"entity": "genre", "role":"genre_1"} movie
+    - know any good [mystery]{"entity": "genre", "role":"genre_1"} [drama]{"entity": "genre", "role":"genre_2"} movies
+    - are there any good [sci-fi]{"entity": "genre", "role":"genre_1"} [war]{"entity": "genre", "role":"genre_2"} [action]{"entity": "genre", "role":"genre_3"} films?
+    - my kids want to watch a [family]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}. can you find one?
+    - [thriller]{"entity": "genre", "role":"genre_1"} [sci-fi]{"entity": "genre", "role":"genre_2"} [adventrue]{"entity": "genre", "role":"genre_3"} flicks please
+    - can you recommend a [family]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}
+    - can you recommend an [action]{"entity": "genre", "role":"genre_1"} [thriller]{"entity": "genre", "role":"genre_2"}
+    - recommend a [family]{"entity": "genre", "role":"genre_1"} movie
+    - can you recommed an [action]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"}
+    - are there other [sport]{"entity": "genre", "role":"genre_1"} [comedy]{"entity": "genre", "role":"genre_2"} movies you would suggest?
+    - show me a good [documentary]{"entity": "genre", "role":"genre_1"}
+    - recommend a [documentary]{"entity": "genre", "role":"genre_1"}
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a bot
+
+- intent: search_with_actor
+  examples: |
+    - what has [Uma Thurman]{"entity": "actor"} starred in 
+    - what has [Brad Pitt]{"entity": "actor"} appeared in
+    - find [Johny Depp]{"entity": "actor"} acted movies
+    - what has [Matt Damon]{"entity": "actor"} acted in
+    - what has [Woody Allen]{"entity": "actor"} acted in    
+    - find [Cher]{"entity": "actor"} starred
+    - give me [Chadwick Bosman]{"entity": "actor"} starred movies
+    - what did [Anna Nab]{"entity": "actor"} star in
+    - what did [Daniel Day-Lewis]{"entity": "actor"} perform in
+    - what has [Robert De Niro]{"entity": "actor"} starred in
+    - what did [Philip Seymour Hoffman]{"entity": "actor"} act in
+    - find [Meryl Streep]{"entity": "actor"} starred movies
+    - How about [Adam Driver]{"entity": "actor"} starred
+    - performed by [Jennifer Lawrence]{"entity": "actor"}
+    - Acted by [Jennifer Lawrence]{"entity": "actor"}
+    - [Chris Evans]{"entity": "actor"} as one of the cast
+    - performed by [Jennifer Lawrence]{"entity": "actor"}
+    - movies [jean reno]{"entity": "actor"} acted in
+    - find [Brad Pitt]{"entity": "actor"} starred movies
+    - movies [Harvey Kitel]{"entity": "actor"} starred in
+    - give [Julia Roberts]{"entity": "actor"} acted movies
+    - what did [Gal Gadot]{"entity": "actor"} star in
+    - what has [Denzel Washington]{"entity": "actor"} starred in
+    - what movies has [brad pitt]{"entity": "actor"} starred
+    - can you find me [ed norton]{"entity": "actor"} starred movies
+    - can you give me [Leonardo Dicaprio]{"entity": "actor"} starred movies
+    - can you find me [Tom Cruise]{"entity": "actor"} acted movies
+    - can you give me ["Ben Affleck"]{"entity": "actor"} acted movies
+    - [Tom Cruise]{"entity": "actor"} starred movies
+
+- intent: search_with_director
+  examples: |
+    - find a movie directed by [Quentin Tarantino]{"entity":"director"}
+    - what can you find me directed by [Guillermo del Toro]{"entity":"director"}
+    - what has [Ridley Scott]{"entity":"director"} directed
+    - find titles by [Penny Marshall]{"entity":"director"}
+    - give me movies by [Martin Scorcese]{"entity":"director"}
+    - find me movies by [Ingmar Bergman]{"entity":"director"}
+    - what does [justin benson]{"entity":"director"} have out there
+    - give me titles by [Aaron Moorhead]{"entity":"director"}
+    - movie directed by [Francis Ford Coppola]{"entity":"director"}
+    - find movies by [Oliver Stone]{"entity":"director"}
+    - movies directed by [Taika Waititi]{"entity":"director"}
+    - movies by [Oliver Stone]{"entity":"director"}
+    - movies by [Woody Allen]{"entity":"director"}
+    - what is the{"entity":"director"}[Taika Waititi]{"entity":"director"} known for
+    - find movies by [Woody Allen]{"entity":"director"}
+    - get me a movie by [Oliver Stone]{"entity":"director"}
+    - get me a movie by [Kathryn Bigelow]{"entity":"director"}
+    - give me movies by [Stanley Kubrick]{"entity":"director"}
+    - find me movies by [Greata Gerwig]{"entity":"director"}
+    - find me movies by [Stanley Kubrik]{"entity":"director"}
+    - give me movies by [Guillermo del Toro]{"entity":"director"}
+    - movies directed by [guy ritchie]{"entity":"director"}    
+    - What has [Ridley Scott]{"entity":"director"} directed
+    - give me a movie by [Guillermo del Toro]{"entity":"director"}
+    - find me a movie by [Oliver Stone]{"entity":"director"}
+    - what is [Patty Jenkins]{"entity":"director"} known for
+    - can you find me movies directed by [oliver stone]{"entity":"director"}
+    - what movies has [christopher nolan]{"entity":"director"} directed
+
+- intent: search_movie_data
+  examples: |
+    - Who directed [Black Panther](movie_title)
+    - who was the director of [I am not a witch](movie_title)
+    - Get me the director of [Mission Impossible Fallout](movie_title)
+    - [Leave No Trace](movie_title) was by who?
+    - Who directed [Terminator](movie_title)
+    - [The Joker](movie_title) was directed by who?
+    - who was [Paddington 2](movie_title) directed by?
+    - [Filmworker](movie_title) director.
+    - who directed [The Ballad of Buster Scruggs](movie_title)?
+    - who directed [pulp fiction](movie_title)
+    - Who directed [Match Point](movie_title)
+    - who directed [Coco](movie_title)
+    - Let me know the director of [Matrix](movie_title)
+    - who directed [New York New York](movie_title)?
+    - Who directed the film [Snatch](movie_title)?
+    - Who starred in [It Follows](movie_title)?
+    - Which actors were in [Ex Machina](movie_title)
+    - stars in [The revenant](movie_title)?
+    - Who acted in [What We Do in the Shadows](movie_title)
+    - actors in [Sicario](movie_title)
+    - acting in [The big short](movie_title)
+    - Starring in [Spotlight](movie_title)
+    - who starred in [The Hateful Eight](movie_title)
+    - which actors in [the martian](movie_title)
+    - Stars in [Slow West](movie_title)
+    - who acted in [Inside Out](movie_title)
+    - who acted in [Pulp Fiction](movie_title)
+    - Who acted in [Match Point](movie_title)
+    - who acted in [Alien](movie_title)
+    - Who acted in [Alien](movie_title)
+    - Who acted in [Alien](movie_title)?
+    - who starred in [alien](movie_title)
+    - who acted in [sleepy hollow](movie_title)
+    - who acted in [coco](movie_title)?
+    - who acted in [bumblebee](movie_title)
+    - who acted in [coco](movie_title)
+    - who acted in [Frozen](movie_title)
+    - who acted in [Fight Club](movie_title)
+    - actors of [deep blue](movie_title)
+    - What is the rating for [Alien](movie_title)
+    - How was [Lady Bird](movie_title) rated
+    - How did [Terminator](movie_title) rate
+    - rating for [The Lure](movie_title)
+    - give me the rating for [Thelma](movie_title)
+    - score for [city of ghosts](movie_title)
+    - how is [super dark times](movie_title) rated?
+    - What is the plot for [Alien](movie_title)?
+    - give me the summary for [Terminator Genesys](movie_title)
+    - overview for [Jo Jo Rabbit](movie_title)
+    - give me the overview for [The Art of Self Defense](movie_title)
+    - what is [The Dead Do not Die](movie_title) about?
+    - give me the plot for [Match Point](movie_title)
+    - What is [Kramer vs Kramer](movie_title) about?
+    - give me the summary of [Rushmore](movie_title).
+    - plot for [skills matter](movie_title)
+    - what is the plot for [Coco](movie_title)
+    - release date for [Roma](movie_title)
+    - when was [The Mule](movie_title) released?
+    - let me know when was [I am not a witch](movie_title) released?
+    - give me the release for [black panther](movie_title).
+    - release for [a house in the prairie](movie_title)
+    - when was [Match point](movie_title) released
+    - when was [The Lure](movie_title) released
+    - when was [Joker](movie_title) released?
+    - can you tell me more about [Snowden](movie_title)
+    - who starred in this movie
+    - yes, can you tell me who directed [Rushmore](movie_title)
+    - when was [black panther](movie_title) released
+    - can you tell me more about [Memento](movie_title)
+    - who starred in [Black Panther](movie_title)
+    - yes. can you look up who directed [the shining](movie_title)
+    - can you show me who directed [fruitvale station](movie_title)
+    - Who starred in [Captain Marvel](movie_title)
+    - who starred in [Insomnia](movie_title)
+    - who starred in [Deadpool](movie_title)
+    - who starred in [Field of Dreams](movie_title)
+    - who directed [Star Wars](movie_title)
+    - who directed [Rushmore](movie_title)
+    - who starred in [Fight Club](movie_title)
+    - who directed [toy story](movie_title)
+    - who starred in [Rushmore](movie_title)
+
+# - intent: search_similar_movies
+#   examples: |
+#     - movies similar to [Heat](movie_title)
+#     - which movies are similar to [The Silence of the Lambs](movie_title)
+#     - suggest something like [No Country for Old Men](movie_title)
+#     - give me something like [Gangs of New York](movie_title)
+#     - What is similar to [The Lord of the Rings The Two Towers](movie_title)
+#     - movie like [Mystic River](movie_title)
+#     - suggestion like [Ace Ventura Pet Detective](movie_title)
+#     - similar movies to [coco](movie_title)
+#     - similar movies to [Alien](movie_title)
+#     - suggest movies like [Black Panther](movie_title)
+#     - Can you suggest movies similar to [deep blue](movie_title)
+#     - show me movies like [Batman](movie_title)
+#     - i liked [airplane](movie_title) so can you show me movies like that
+#     - how about something like [Rushmore](movie_title)
+#     - movies as good as [Top Gun](movie_title)
+#     - show films equal to [Copland](movie_title)
+#     - Can you recommend a movie like the [Matrix](movie_title)?
+#     - movies like [the dark knight](movie_title)
+#     - Can you recommend a movie like [Rushmore](movie_title)
+#     - can you recommend a movie like the [matrix](movie_title)
+#     - can you recommend a movie like [Shutter Island](movie_title)
+#     - can you find a movie like the [martrix](movie_title)
+#     - can you recommend a movie like [the shining](movie_title)
+#     - can you recommend a movie like [groundhog's day](movie_title)
+#     - can you find me a movie like [Major League](movie_title)
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yep
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - not at all
+
+- intent: dismiss
+  examples: |
+    - that is all
+    - i don't need anything else
+    - you answered all of my questions
+    - i can't think of anything else
+    - nope, that's it
+    - not at this time
+    - that will be it
+    - i have no more questions
+    - that's all for now
+    - nevermind
+    - no, that is all
+    - that is all i need
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - Im good
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

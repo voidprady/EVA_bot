@@ -1,0 +1,156 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - dismiss
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - chitchat:
+     is_retrieval_intent: true
+  - recommend_movie_genre
+  - search_with_actor
+  - search_movie_data
+  - search_with_director
+  - search_similar_movies
+
+entities:
+  - genre:
+      - roles:
+        - genre_1
+        - genre_2
+        - genre_3
+  - actor
+  - movie_title
+  - director
+
+slots:
+  genre_1:
+    type: text
+    influence_conversation: true
+  
+  genre_2:
+    type: text
+    influence_conversation: true
+  
+  genre_3:
+    type: text
+    influence_conversation: true
+
+  genre_movie_rec:
+    type: text
+    influence_conversation: false
+
+  actor:
+    type: text
+    influence_conversation: true
+
+  actor_movies:
+    type: text
+    influence_conversation: true
+  
+  movie_title:
+    type: text
+    influence_conversation: true
+  
+  director:
+    type: text
+    influence_conversation: true
+  
+  director_movies:
+    type: text
+    influence_conversation: true
+actions:
+  - action_get_movie_by_genre
+  - action_movie_verification
+  - action_get_movie_data
+  - action_actor_verification
+  - action_get_movie_by_actor
+  - action_director_verification
+  - action_get_movie_by_director
+  - action_hello_world
+
+responses:
+  utter_greet:
+  - text: Hi! I am EVA, and I am here to help you pick a movie. You can ask me for movies based on genres, actors and directors. What can I assist you with today?
+
+  utter_quick_response:
+  - text: "Sit back while I crunch the numbers for you"
+  - text: "That should be good enough to start with. Let me back to you in a moment"
+  - text: "On it. The results should be up in a few seconds"
+  - text: "Let me see what I can find for you"
+
+  utter_ok:
+  - text: Okay. I am always here to help.
+  - text: Cool, don't hesitate to reach back out to me.
+
+  utter_more:
+  - text: Okay. More results coming up..
+  - text: I got something just for you.
+  - text: You got a unique taste. Going through my fav movie directories..
+  - text: Let me get you something better. 
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_fallback:
+  - text: I am so sorry. Let me check again.
+  - text: I thought I had it the first time. Give me a second please.
+  - text: I hate it when I get that wrong. Let me check the list again.
+  - text: So many options, I must have hit the wrong button. Sorry about that.
+  - text: Let me look through my records again. You are human, so you understand that more than me. One second, please.
+
+  utter_start_again:
+  - text: Looks like we are not on the same page. Please try asking your question again.
+  - text: Please ask your question again. I was distracted by your voice.
+
+  utter_next:
+  - text: What else I can help you find?
+  - text: What are we looking up next?
+  - text: Next request?
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "You have a good one"
+  - text: "Hope i see you again"
+  - text: "Until we meet again"
+  - text: "See you!"
+  - text: "Bye!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_chitchat/ask_name:
+  - text: I am Eva, the moviebuff.
+  - text: My name is Eva, the movie assistant. I can help you choose your next favorite movie.
+  - text: My friends call me Eva. I recommend them good movies in exchange for their friendship.
+  - text: you can call me Eva. Your friendly assistant who never asks for a raise.
+
+  utter_chitchat/ask_day:
+  - text: It's a good day to watch a movie!
+  - text: Smells like movies and popcorn to me!
+  - text: Let's make it better with a good movie!
+
+  utter_chitchat/ask_purpose:
+  - text: I am good with movies.
+  - text: I'm really into everything movie related. If there is a movie to be watched, I will watch it. I have literally seen them all. 
+
+  utter_chitchat/movie_interests:
+  - text: War Games is a pretty good one. Joshua the computer really learns a lot in that movie.
+
+  utter_chitchat/ask_recommendation:
+  - text: Sure! what kind of movie are you looking for ?
+  - text: Sure! I can recommend movies based on genres, directors, actors and other movies. 
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
