@@ -75,9 +75,9 @@ stories:
   - checkpoint: feedback_level_1
   - intent: search_movie_data
     entities:
-    - movie_title: Bending All the Rules
+    - movie_title: bending all the rules
   - slot_was_set:
-    - movie_title: Bending All the Rules
+    - movie_title: bending all the rules
   - action: action_movie_verification
   - intent: affirm
   - action: utter_quick_response
@@ -92,9 +92,9 @@ stories:
   - checkpoint: feedback_level_1
   - intent: search_movie_data
     entities:
-    - movie_title: Black Panther
+    - movie_title: black panther
   - slot_was_set:
-    - movie_title: Black Panther
+    - movie_title: black panther
   - action: action_movie_verification
   - intent: affirm
   - action: utter_quick_response
@@ -102,9 +102,9 @@ stories:
   - action: utter_next
   - intent: search_with_actor
     entities:
-    - actor: Buster Keaton
+    - actor: buster keaton
   - slot_was_set:
-    - actor: Buster Keaton
+    - actor: buster keaton
   - action: utter_quick_response
   - action: action_actor_verification
   - intent: affirm
@@ -121,7 +121,7 @@ stories:
     entities:
     - movie_title: Black Panther
   - slot_was_set:
-    - movie_title: Black Panther
+    - movie_title: black panther
   - action: action_movie_verification
   - intent: affirm
   - action: utter_quick_response
