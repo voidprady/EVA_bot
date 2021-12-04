@@ -8,6 +8,14 @@
   #Go to the project directory and run "rasa train". This will take sometime as the bot is in training.
   #once training is done. run "rasa shell" to talk to EVA.
 
+# Packages Installed:
+pandas                    1.3.4
+rasa                      2.8.13
+rasa-sdk                  2.8.2
+rapidfuzz                 1.8.2
+tensorflow                2.6.0
+numpy                     1.19.5
+
 #EVA uses imdb and rotten tomatoes csv file which is larger in size. so the db folder is shared on drive. Before running the project please make sure you extracted the files under the folder "db" in the project directory.(https://drive.google.com/drive/folders/1ga0suOczFAJrK3RjZ6Kq65XqQyDsYKNK?usp=sharing).
 #EVA is built using RASA Open Source using Python. She is still new and learning faster. Here are some basic conversation flows that you might be interested to try.
 
